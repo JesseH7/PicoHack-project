@@ -34,9 +34,13 @@ estate = [False]*36
 counter = 0
 difficulty = 100
 levels = ['Easy', 'Medium', 'Hard', 'Extreme', 'Unstoppable', 'Legendary', 'God-Like']
+currentLevel = 0
 #start of game loop
 while is_running:
     if (counter+1)% 50 == 0:
+        if currentLevel + 1 < len(levels):
+            currentLevel+=1
+
         for i in range(len(estate)):
             estate[i] = False
         counter+=1
@@ -45,7 +49,9 @@ while is_running:
         is_running=False
     window_surface.blit(map, (0, 0))
     text_surface = my_font.render('Score : ' + str(counter), True, (0, 0, 0))
+    lev = my_font.render(levels[currentLevel], True, (0, 0, 0))
     window_surface.blit(text_surface, (750,0))
+    window_surface.blit(lev, (1500, 0))
     houseFire = randint(0, 35)
     if randint(1, 10000) < difficulty:
         if randint(1, 100000) < 300:
@@ -114,5 +120,6 @@ while is_running:
     window_surface.blit(map, (0, 0))
     text_surface = my_font.render('Score : ' + str(counter), True, (0, 0, 0))
     window_surface.blit(text_surface, (750,0))
+    window_surface.blit(lev, (1500,0))
     window_surface.blit(gameover, (550, 300))
     pygame.display.update()
