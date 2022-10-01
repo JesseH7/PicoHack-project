@@ -5,7 +5,7 @@ from startMenu import menu
 from random import randint
 import time
 
-sounds.
+
 
 pygame.init()
 pygame.font.init() # you have to call this at the start,
@@ -34,12 +34,14 @@ estate = [False]*36
 counter = 0
 difficulty = 100
 levels = ['Easy', 'Medium', 'Hard', 'Extreme', 'Unstoppable', 'Legendary', 'God-Like']
+sov = [sounds.playMedium, sounds.playHard, sounds.playExtreme, sounds.playUnstoppable, sounds.playLegendary, sounds.playLegendary]
 currentLevel = 0
 #start of game loop
 while is_running:
     if (counter+1)% 50 == 0:
         if currentLevel + 1 < len(levels):
             currentLevel+=1
+            print(sov[currentLevel])
 
         for i in range(len(estate)):
             estate[i] = False
