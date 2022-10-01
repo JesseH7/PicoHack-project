@@ -10,8 +10,8 @@ background = pygame.Surface((1600, 1200))
 is_running = True
 
 #Import Images
-houseT = pygame.image.load("C:\\Users\\jh17g22\\OneDrive - University of Southampton\\Documents\\GitHub\\PicoHack-project\\Assets\\HouseT.png").convert_alpha()
-map = pygame.image.load("C:\\Users\\jh17g22\\OneDrive - University of Southampton\\Documents\\GitHub\\PicoHack-project\\Assets\\EmptyMap.png").convert_alpha()
+houseT = pygame.image.load("Assets\\HouseT.png").convert_alpha()
+map = pygame.image.load("Assets\\EmptyMap.png").convert_alpha()
 
 
 while is_running:
