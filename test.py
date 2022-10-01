@@ -22,7 +22,15 @@ while is_running:
         
 
     window_surface.blit(map, (0, 0))
-    window_surface.blit(houseT, (0, 0))
+    locations = []
+    x,y = 20, 20
+    for _ in range(4):
+        for i in range(9):
+            window_surface.blit(houseT, (x, y))
+            locations.append((x, y))
+            x+=175
+        x = 20
+        y+=320
 
     pygame.display.update()
 
