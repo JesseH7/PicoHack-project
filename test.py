@@ -19,6 +19,7 @@ while is_running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             is_running = False
+        
 
     window_surface.blit(map, (0, 0))
     window_surface.blit(houseT, (0, 0))
