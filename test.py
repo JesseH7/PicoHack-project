@@ -5,7 +5,7 @@ from startMenu import menu
 from random import randint
 import time
 
-
+sounds.
 
 pygame.init()
 pygame.font.init() # you have to call this at the start,
