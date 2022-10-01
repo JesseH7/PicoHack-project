@@ -33,12 +33,14 @@ gameover = pygame.image.load("Assets\\gameover.png").convert_alpha()
 estate = [False]*36
 counter = 0
 difficulty = 100
-
+levels = ['Easy', 'Medium', 'Hard', 'Extreme', 'Unstoppable', 'Legendary', 'God-Like']
 #start of game loop
 while is_running:
-    if counter+1% 50 == 0:
+    if (counter+1)% 50 == 0:
         for i in range(len(estate)):
             estate[i] = False
+        counter+=1
+        difficulty-=300
     if estate.count(True) >= 36:
         is_running=False
     window_surface.blit(map, (0, 0))
