@@ -25,6 +25,10 @@ map = pygame.image.load("Assets\\EmptyMap.png").convert_alpha()
 
 
 #starts to play the background music
+
+sounds.playHard()
+input()
+
 sounds.playBG()
 menu(window_surface)
 
