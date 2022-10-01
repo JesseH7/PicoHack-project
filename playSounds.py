@@ -37,32 +37,43 @@ class sounds:
         channel = pygame.mixer.Channel(5)
         channel.play(sound)
         channel.set_volume(0.5)
+
+    def splash():
+        sound = pygame.mixer.Sound("Sounds\\splash.mp3")
+        channel = pygame.mixer.Channel(5)
+        channel.play(sound)
+        channel.set_volume(5)
     def playFireOut():
         #newChannel = pygame.mixer.find_channel()
         sound = pygame.mixer.Sound("Sounds\\fireOut.mp3")
-        channel = pygame.mixer.Channel(6)
-        channel.play(sound)
-        channel.set_volume(1.5)
+        try:
+            pygame.mixer.find_channel().play(sound)
+        except:
+            pass
     def playMedium():
         sound = pygame.mixer.Sound("Sounds\\medium.mp3")
         channel = pygame.mixer.Channel(5)
         channel.play(sound)
-        channel.set_volume(0.5)
+        channel.set_volume(5)
     def playHard():
         sound = pygame.mixer.Sound("Sounds\\hard.mp3")
         channel = pygame.mixer.Channel(5)
         channel.play(sound)
-        channel.set_volume(0.5)
+        channel.set_volume(5)
     def playExtreme():
         sound = pygame.mixer.Sound("Sounds\\extreme.mp3")
         channel = pygame.mixer.Channel(5)
         channel.play(sound)
-        channel.set_volume(0.5)
-
+        channel.set_volume(5)
+    def playFtNoise():
+        sound = pygame.mixer.Sound("Sounds\\firetrucknoise.mp3")
+        channel = pygame.mixer.Channel(5)
+        channel.play(sound)
+        channel.set_volume(2)
     def playManScream():
         sound = pygame.mixer.Sound("Sounds\\screamMan.mp3")
         channel = pygame.mixer.Channel(5)
         channel.play(sound)
-        channel.set_volume(0.5)
+        channel.set_volume(5)
     def stopAllSounds():
         pygame.mixer.quit()
