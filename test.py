@@ -1,4 +1,5 @@
 import pygame
+from playSounds import sounds
 
 pygame.init()
 
@@ -13,7 +14,10 @@ is_running = True
 houseT = pygame.image.load("Assets\\HouseT.png").convert_alpha()
 map = pygame.image.load("Assets\\EmptyMap.png").convert_alpha()
 
+#starts to play the background music
+sounds.playBG()
 
+#start of game loop
 while is_running:
 
     for event in pygame.event.get():
