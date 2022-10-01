@@ -2,9 +2,6 @@ import pygame
 
 
 class sounds:
-
-    freeChannel = None
-    
     def __init__():
         pygame.mixer.init()
     def playBG():
@@ -44,7 +41,7 @@ class sounds:
         channel.play(sound)
         channel.set_volume(5)
     def playFireOut():
-        #newChannel = pygame.mixer.find_channel()
+        #print(pygame.mixer.find_channel())
         sound = pygame.mixer.Sound("Sounds\\fireOut.mp3")
         try:
             pygame.mixer.find_channel().play(sound)
@@ -75,5 +72,7 @@ class sounds:
         channel = pygame.mixer.Channel(5)
         channel.play(sound)
         channel.set_volume(5)
+        channel.set_volume(0.5)
+
     def stopAllSounds():
         pygame.mixer.quit()
