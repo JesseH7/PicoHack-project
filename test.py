@@ -1,11 +1,11 @@
-import pygame
-<<<<<<< Updated upstream
+import pygame,sys
+
 from playSounds import sounds
-=======
+from startMenu import menu
 from random import randint
 import time
 
->>>>>>> Stashed changes
+
 
 pygame.init()
 pygame.font.init() # you have to call this at the start,
@@ -22,20 +22,23 @@ is_running = True
 #Import Images
 houseT = pygame.image.load("Assets\\HouseT.png").convert_alpha()
 map = pygame.image.load("Assets\\EmptyMap.png").convert_alpha()
-<<<<<<< Updated upstream
+
 
 #starts to play the background music
 sounds.playBG()
-=======
+menu(window_surface)
+
 burningHouse = pygame.image.load("Assets\\HouseF.png").convert_alpha()
 gameover = pygame.image.load("Assets\\gameover.png").convert_alpha()
 estate = [False]*36
 counter = 0
-difficulty = 10000
->>>>>>> Stashed changes
+difficulty = 100
 
 #start of game loop
 while is_running:
+    if counter+1% 50 == 0:
+        for i in range(len(estate)):
+            estate[i] = False
     if estate.count(True) >= 36:
         is_running=False
     window_surface.blit(map, (0, 0))
@@ -43,6 +46,8 @@ while is_running:
     window_surface.blit(text_surface, (750,0))
     houseFire = randint(0, 35)
     if randint(1, 10000) < difficulty:
+        if randint(1, 100000) < 300:
+            sounds.playWomanScream()
         estate[houseFire] = True
     rangex = []
     rangey = []
@@ -90,16 +95,22 @@ while is_running:
                 cy+=1
             ycor = cy // 9
 
-            if xfound and yfound:
+            if xfound and yfound and estate[cx+(9*ycor)]:
                 estate[cx+(9*ycor)]= False
                 counter+=1
                 difficulty+=10
+                sounds.playFireOut()
+
+
     pygame.display.update()
 is_running=True
+sounds.playManScream()
 while is_running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             is_running = False
     window_surface.blit(map, (0, 0))
+    text_surface = my_font.render('Score : ' + str(counter), True, (0, 0, 0))
+    window_surface.blit(text_surface, (750,0))
     window_surface.blit(gameover, (550, 300))
     pygame.display.update()
