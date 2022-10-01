@@ -1,2 +1,2 @@
 print("wazzup")
-print()
+print("Hello")
